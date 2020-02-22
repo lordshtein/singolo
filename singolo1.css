@@ -1,5 +1,5 @@
 body {
-  width: 1024px;
+  width: 1020px;
   margin: 0 auto;
 }
 
@@ -31,6 +31,7 @@ h1 {
   margin-right: 40px;
   display: flex;
   justify-content: space-between;
+  margin-top: 25px;
   
   
 }
@@ -59,10 +60,11 @@ h1 {
   text-align: center;  
   color: #3a3e4d;
   position: relative;
-  top: -4px;
-  right: -15px;
+  top: -2px;
+  right: -14px;
 }
 
 .headermenu_last:after {
     content: "";
+    font-size: 16px;
 }

@@ -46,7 +46,7 @@ h2 {
   width: 290px;
   padding-left: 0;
   justify-content: space-between;
-
+  margin-bottom: 22px;
 }
 
 .portfolio-menu_item {
@@ -63,4 +63,24 @@ h2 {
   border: 1px solid  #666d89;
   border-radius: 5px;
 
+}
+
+.portfolio-menu_link:hover {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 16px;
+  grid-auto-rows: 0px;
+  overflow-y: hidden;
+
+}
+
+.picture-link:hover {
+  background-color: #ff6666;
 }

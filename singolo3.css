@@ -81,12 +81,12 @@ form {
 
 .forms {
     padding-left: 15px;
-    border-style: hidden;
+    border: 1px solid  #d6564f;
     border-radius: 5px;
     background-color: #d6564f;
     font-family: "Lato";
     font-size: 12px;
-    line-height: 36px;
+    line-height: 34px;
     color: #f0d8d9;
     
 }
@@ -95,9 +95,23 @@ form {
     margin-bottom: 16px;
 }
 .area {
-    height: 200px ;
+    height: 198px ;
     resize: none;
 }
+
+.forms:focus {
+    outline: none;
+}
+
+
+.forms:required:valid {
+    border: 1px solid #5cd053;
+}
+
+.forms:required:focus:invalid {
+    border: 1px solid #ff2600;
+}
+
 
 ::placeholder {
     font-family: "Lato";
@@ -106,6 +120,19 @@ form {
     opacity: 0.5;
     font-weight: 300;
 }
+
+.submit {
+    padding-left: 0;
+    margin-top: 15px;
+    justify-self: flex-start;
+    width: 20%;
+    cursor: pointer;
+}
+
+.submit:active {
+    background-color:  #2d303a;
+}
+
 .contacts {
     margin-left: 0;
     margin-top: 0;

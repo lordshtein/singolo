@@ -10,6 +10,10 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index:5;
 }
 
 h1 {
@@ -39,6 +43,10 @@ h1 {
 .headermenu_link {
   text-decoration: none;
   color: #ffffff;
+  font-family: "Lato";
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 .headermenu_link:hover {
@@ -46,14 +54,11 @@ h1 {
 }
 
 .headermenu_item {
-  font-family: "Lato";
-  font-size: 12px;
-  font-weight: 400;
   list-style: none;
   text-transform: uppercase;
 }
 
-.headermenu_item:after {
+.headermenu_link:after {
   content: ".";
   font-size: 12px;
   text-align: center;
@@ -355,10 +360,6 @@ h1 {
 
 }
 
-.picture-link:hover {
-  background-color: #ff6666;
-}
-
 .peoples-grid {
   margin-top: 44px;
   display: grid;
@@ -588,4 +589,58 @@ form {
 .fa-phone,
 .fa-envelope {
   margin-right: 12px;
+}
+
+/* classes for js events*/
+
+.headermenu_link__active {
+  color: #ff6666;
+}
+
+.portfolio-menu_link__active {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.image__active {
+  border: 5px solid #F06C64;
+  box-sizing: content-box;
+  z-index: 4;
+}
+
+.alert-window {
+  background-color: #666d89;
+  width: 620px;
+  height: 300px;
+  position: absolute;
+  border-radius: 5px;
+  z-index: -1;
+}
+
+.alert-window__active {
+  z-index: 2;
+}
+
+.skipbtn {
+  width: 70px;
+  justify-content: center;
+  padding: 0 0;
+  position: relative;
+  top: 20px;
+}
+
+.message-text {
+  padding-left: 15px;
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+  background-color:#ffffff;
+  font-family: "Lato";
+  font-size: 12px;
+  line-height: 34px;
+  color:  #d6564f;
+  margin: 10px 10px;
+  text-align: justify;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 100px;
 }

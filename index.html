@@ -11,24 +11,24 @@
 </head>
 
 <body>
-  <header>
+  <header id="header">
     <h1>singolo<span class="logostar">*</span></h1>
     <ul class="headermenu">
-      <a href="#" class="headermenu_link">
-        <li class="headermenu_item">home</li>
-      </a>
-      <a href="#" class="headermenu_link">
-        <li class="headermenu_item">services</li>
-      </a>
-      <a href="#" class="headermenu_link">
-        <li class="headermenu_item">portfolio</li>
-      </a>
-      <a href="#" class="headermenu_link">
-        <li class="headermenu_item">about</li>
-      </a>
-      <a href="#" class="headermenu_link">
-        <li class="headermenu_item headermenu_last">contact</li>
-      </a>
+      <li class="headermenu_item">
+        <a href="#header" class="headermenu_link">home</a>
+      </li>
+      <li class="headermenu_item">
+        <a href="#services" class="headermenu_link">services</a>
+      </li>
+      <li class="headermenu_item">
+        <a href="#portfolio" class="headermenu_link">portfolio</a>
+      </li>
+      <li class="headermenu_item">
+        <a href="#about" class="headermenu_link">about</a>
+      </li>
+      <li class="headermenu_item">
+        <a href="#contact" class="headermenu_link headermenu_last">contact</a>
+      </li>
     </ul>
   </header>
 
@@ -43,7 +43,7 @@
     </a>
   </div>
 
-  <div class="services">
+  <div class="services" id="services">
     <h2 class="services-main-title">Our Services</h2>
     <p class="services-info">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimen.
       Fusce dapibus, tellus ac cursus commodo, tortor mauris condimen.
@@ -133,7 +133,7 @@
   </div>
 
 
-  <div class="portfolio">
+  <div class="portfolio" id="portfolio">
     <h2 class="portfolio-main-title">Portfolio</h2>
     <p class="portfolio-text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec
       elit.</p>
@@ -220,16 +220,11 @@
         </a>
       </div>
 
-      <div class="portfolio-grid_item">
-        <a class="picture-link" href="#">
-          <img src="assets/img/singolo2/Image12.png">
-        </a>
-      </div>
 
     </div>
   </div>
 
-  <div class="peoples">
+  <div class="peoples" id="about">
     <h2 class="about-main-title">About Us</h2>
     <p class="portfolio-text">Pellentesque tincidunt augue ut urna convallis pharetra eget at orci. Donec id consectetur
       urna. Aenean quis
@@ -330,7 +325,7 @@
     </div>
   </div>
 
-  <div class="communications">
+  <div class="communications" id="contact">
     <h2 class="communications-main-title">Get a Quote</h2>
 
     <p class="communications-text">Mauris sollicitudin risus quis massa consequat luctus. Nam aliquet elementum ex sed
@@ -339,12 +334,17 @@
     </p>
 
     <div class=form-wrapper>
-      <form action="anywhere.com">
-        <input class="forms line" type="text" minlength="4" required placeholder="Name (Required)">
-        <input class="forms line" type="email" required placeholder="Email (Required)">
-        <input class="forms line" type="text" placeholder="Subject">
-        <textarea class="forms area" placeholder="Describe your project in detail..."></textarea>
+      <form action="anywhere.com" onsubmit="return false">
+        <input class="forms line" id="name" type="text" minlength="4" required placeholder="Name (Required)">
+        <input class="forms line" id="mail" type="email" required placeholder="Email (Required)">
+        <input class="forms line" id="subject" type="text" placeholder="Subject">
+        <textarea class="forms area" id="description" placeholder="Describe your project in detail..."></textarea>
         <input class="forms submit" type="submit" value="Submit">
+
+        <div class="alert-window">
+          <button class="forms skipbtn">Ok</button>
+        </div>
+
       </form>
 
       <div class="contacts-wparrep">
@@ -390,5 +390,9 @@
       </ul>
     </div>
   </footer>
+
+  <script src="script.js"></script>
+
+</body>
 
 </html>

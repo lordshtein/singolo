@@ -1,3 +1,5 @@
+/* slider */
+
 let slides = document.querySelectorAll(".slider-item");
 let currentSlide = 0;
 
@@ -35,13 +37,10 @@ function showSlide(direction) {
 
 
 document.querySelector(".slider-arrow.left").addEventListener("click", function() {
-    
     previous(currentSlide)
 })
 
 
 document.querySelector(".slider-arrow.right").addEventListener("click", function() {
-    
     next(currentSlide)
-
 })

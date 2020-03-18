@@ -779,9 +779,8 @@ form {
 }
 
 .image__active {
-  border: 5px solid #F06C64;
-  box-sizing: content-box;
-  z-index: 4;
+  outline: 5px solid #F06C64;
+  outline-offset: -5px;
 }
 
 .alert-window {

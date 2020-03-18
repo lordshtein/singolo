@@ -90,8 +90,12 @@ const subBtnClick = (event) => {
 };
 
 const skipBtnClick = (event) => {
-
   messageWindow.classList.remove("alert-window__active")
+  document.querySelectorAll(".forms").forEach( e => {
+    if (!e.classList.contains("submit")) {
+      e.value = ""
+    }
+  })
 
 };
 

@@ -12,8 +12,8 @@ header {
   align-items: center;
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
-  z-index: 5;
+  top:-32px;
+  z-index: 20;
 }
 
 h1 {
@@ -51,6 +51,10 @@ h1 {
 
 .headermenu_link:hover {
   color: #ff6666;
+}
+
+.active {
+    color: #ff6666;
 }
 
 .headermenu_item {

@@ -1,5 +1,7 @@
+const anchors = document.querySelectorAll('.headermenu_link')
+
 const menuClick = (event) => {
-  document.querySelectorAll(".headermenu_link").forEach(e =>
+  anchors.forEach(e =>
     e.classList.remove("headermenu_link__active")
   )
   event.target.classList.add("headermenu_link__active");
@@ -7,18 +9,60 @@ const menuClick = (event) => {
 
 document.querySelector(".headermenu").addEventListener('click', menuClick)
 
+for (let anchor of anchors) {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault()
+    let windowPos = anchor.getAttribute('href')
+    document.querySelector(windowPos).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    })
+  })
+}
+
+/* Observer */
+const sections = document.querySelectorAll(".screen");
+
+const config = {
+  rootMargin: '-100px 0px -30% 0px',
+  threshold: 0.5
+};
+
+const setActiveMenuBlock = (screen) => {
+  let id = "."+screen.target.id+"Link";
+  console.log(document.querySelector(id))
+  if (document.querySelector(".headermenu_link__active")) {
+  document.querySelector(".headermenu_link__active").classList.remove("headermenu_link__active");
+  }
+  document.querySelector(id).classList.add("headermenu_link__active");
+}
+
+let observer = new IntersectionObserver(function (screens, self) {
+  screens.forEach(screen => {
+    console.log(screen);
+    if (screen.isIntersecting) {
+      setActiveMenuBlock(screen);
+    }
+  });
+}, config);
+
+sections.forEach(section => {
+  console.log(section)
+  observer.observe(section);
+});
+
 /* portfolio*/
 
 const portfolioTabClick = (event) => {
   event.preventDefault();
-  shuflePics();
+  shufflePics();
   document.querySelectorAll(".portfolio-menu_link").forEach(e =>
     e.classList.remove("portfolio-menu_link__active")
   );
   event.target.classList.add("portfolio-menu_link__active");
 };
 
-const shuflePics = () => {
+const shufflePics = () => {
   let pictures = Array.from(document.querySelectorAll(".portfolio-grid_item"))
   let parent = document.querySelector(".portfolio-grid")
 
@@ -34,18 +78,18 @@ const shuflePics = () => {
 
 const pictureClick = (event) => {
   event.preventDefault();
-  console.log(event.target.tagName)
-  if (event.target.tagName === "IMG") {
+  if (event.target.tagName === "IMG" && event.target.classList.contains("image__active")) {
+    event.target.classList.remove("image__active")
+  } else if (event.target.tagName === "IMG") {
     document.querySelectorAll(".image__active").forEach(e =>
       e.classList.remove("image__active")
     )
     event.target.classList.add("image__active");
-  } else {
+  } else if (event.target.tagName != "IMG")  {
     document.querySelectorAll(".image__active").forEach(e =>
       e.classList.remove("image__active")
     )
   }
-
 };
 
 

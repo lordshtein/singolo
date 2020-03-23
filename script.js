@@ -25,7 +25,7 @@ const sections = document.querySelectorAll(".screen");
 
 const config = {
   rootMargin: '-100px 0px -30% 0px',
-  threshold: 0.5
+  threshold: 0.3
 };
 
 const setActiveMenuBlock = (screen) => {

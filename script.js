@@ -17,29 +17,41 @@ for (let anchor of anchors) {
       behavior: 'smooth',
       block: 'start'
     })
+    document.querySelector(".burger-menu").classList.remove("rotated")
+    document.querySelector(".mobile-wrapper").classList.remove("mobile-wrapper_active")
   })
 }
+
+
+
+const burgerToggle = () => {
+  document.querySelector(".mobile-wrapper").classList.toggle("mobile-wrapper_active")
+  document.querySelector(".burger-menu").classList.toggle("rotated")
+};
+
+document.querySelector(".burger-menu").addEventListener('click', burgerToggle)
+
+
 
 /* Observer */
 const sections = document.querySelectorAll(".screen");
 
 const config = {
-  rootMargin: '-100px 0px -30% 0px',
-  threshold: 0.3
+  rootMargin: '-100px 0px -70% 0px',
+  threshold: 0.05
 };
 
 const setActiveMenuBlock = (screen) => {
-  let id = "."+screen.target.id+"Link";
-  console.log(document.querySelector(id))
+  let id = "." + screen.target.id + "Link";
   if (document.querySelector(".headermenu_link__active")) {
-  document.querySelector(".headermenu_link__active").classList.remove("headermenu_link__active");
+    document.querySelectorAll(".headermenu_link__active").forEach( e => e.classList.remove("headermenu_link__active"));
   }
-  document.querySelector(id).classList.add("headermenu_link__active");
+  document.querySelectorAll(id).forEach(e => e.classList.add("headermenu_link__active"));
+
 }
 
 let observer = new IntersectionObserver(function (screens, self) {
   screens.forEach(screen => {
-    console.log(screen);
     if (screen.isIntersecting) {
       setActiveMenuBlock(screen);
     }
@@ -47,7 +59,6 @@ let observer = new IntersectionObserver(function (screens, self) {
 }, config);
 
 sections.forEach(section => {
-  console.log(section)
   observer.observe(section);
 });
 
@@ -85,7 +96,7 @@ const pictureClick = (event) => {
       e.classList.remove("image__active")
     )
     event.target.classList.add("image__active");
-  } else if (event.target.tagName != "IMG")  {
+  } else if (event.target.tagName != "IMG") {
     document.querySelectorAll(".image__active").forEach(e =>
       e.classList.remove("image__active")
     )
@@ -121,7 +132,6 @@ const checkInput = () => {
 
 const subBtnClick = (event) => {
   checkInput();
-  console.log(description, subject);
   document.querySelectorAll(".message-text").forEach(e =>
     e.remove()
   );
@@ -135,7 +145,7 @@ const subBtnClick = (event) => {
 
 const skipBtnClick = (event) => {
   messageWindow.classList.remove("alert-window__active")
-  document.querySelectorAll(".forms").forEach( e => {
+  document.querySelectorAll(".forms").forEach(e => {
     if (!e.classList.contains("submit")) {
       e.value = ""
     }
@@ -192,14 +202,14 @@ function showSlide(direction) {
 
 document.querySelector(".slider-arrow.left").addEventListener("click", function () {
   if (toogle) {
-  previous(currentSlide);
+    previous(currentSlide);
   }
 });
 
 
 document.querySelector(".slider-arrow.right").addEventListener("click", function () {
   if (toogle) {
-  next(currentSlide);
+    next(currentSlide);
   }
 });
 
